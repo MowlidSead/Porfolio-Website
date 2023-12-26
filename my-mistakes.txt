@@ -1,0 +1,32 @@
+projects.jsx code
+
+import { projectsData } from '../data/data';
+
+export const Projects = () => {
+  return (
+    <div className='bg-slate-100 h-auto overflow-hidden'>
+      <div className='max-w-7xl mx-auto size-full overflow-hidden lg:px-16 md:px-14 py-20'>
+        <h1 className="text-center text-4xl font-bold text-slate-700 pb-20">My Projects</h1>
+        <div className='grid lg:grid-cols-2 grid-cols-1 lg:gap-8 md:gap-8 gap- place-items-center overflow-hidden sm:px-10 max-sm:px-2'>
+          {projectsData.map((data, index) => (
+            <>
+              <div key={index} className='w-full h-auto lg:scale-100 md:scale-100 scale-95 bg-slate-200 rounded-xl flex lg:flex-row md:flex-row flex-col lg:gap-5 md:gap-5 gap-10 justify-start items-center lg:px-5 md:px-5 p-7 overflow-hidden'>
+                <div className='lg:w-64 md:w-64 w-full'>
+                  <img className='lg:w-64 md:w-64 rounded-2xl shadow-md shadow-slate-500/50' src={data.imageUrl} alt="" />
+                </div>
+                <div className='lg:w-64 md:w-64 w-full h-44 flex flex-col gap-2 items-start relative sm:scale-125 sm:px-16 sm:my-10'>
+                  <h1 className='bg-slate-300 font-medium px-5 py-2.5 rounded-lg'>{data.title}</h1>
+                  <p className='lg:text-2xl text-xl text-slate-800 font-bold ml-2'>{data.name}</p>
+                  <p className='text-sm text-slate-700 ml-2'>{data.tags}</p>
+                  <p className='text-xl text-slate-800 flex items-center cursor-pointer selection:bg-transparent gap-2 font-medium ml-2 absolute bottom-0'>
+                    {data.Detailstext}{data.Details}
+                  </p>
+                </div>
+              </div>
+            </>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
